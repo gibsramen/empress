@@ -1244,6 +1244,8 @@ define([
                 }
             }
         }
+
+        notRepresented = new Set();
         var result = util.keepUniqueKeys(obs, notRepresented);
 
         // remove all groups that do not contain unique features
