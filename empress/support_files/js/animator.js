@@ -151,8 +151,12 @@ define(["Colorer", "util"], function (Colorer, util) {
         this.trajectoryCol = trajectory;
         var trajectories = this.empress.getUniqueSampleValues(trajectory);
         // Assign a color to each unique category
+        trajectories.push("NON_UNIQUE");
         var colorer = new Colorer(cm, trajectories);
         this.cm = colorer.getMapRGB();
+        this.cm["0.0"] = [1.0, 0.0, 0.0];
+        this.cm["1.0"] = [0.0, 0.0, 1.0];
+        this.cm.NON_UNIQUE = [0.56, 0.15, 0.55];
         this.legendInfo = colorer.getMapHex();
 
         this.hide = hide;
